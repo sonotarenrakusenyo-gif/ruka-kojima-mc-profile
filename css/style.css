@@ -489,7 +489,8 @@ img { display: block; max-width: 100%; }
 
 .gallery-mini-grid img {
     aspect-ratio: 1;
-    object-fit: cover;
+    object-fit: contain;
+    background: var(--bg-cream);
     width: 100%;
     border-radius: 6px;
     transition: var(--transition-fast);
@@ -574,11 +575,11 @@ img { display: block; max-width: 100%; }
 
 .latest-list li {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr auto;
     gap: 0.6rem;
     align-items: center;
-    font-size: 0.78rem;
-    padding: 0.55rem 0;
+    font-size: 0.82rem;
+    padding: 0.6rem 0;
     border-bottom: 1px solid rgba(255,255,255,0.08);
     color: var(--text-on-dark-muted);
 }
