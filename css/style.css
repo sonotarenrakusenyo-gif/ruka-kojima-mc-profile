@@ -595,9 +595,7 @@ img { display: block; max-width: 100%; }
 
 .latest-title {
     color: var(--text-on-dark);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    line-height: 1.5;
 }
 
 .latest-tag {
