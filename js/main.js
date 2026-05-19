@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Intersection Observer for scroll animations
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.15
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fadeElements = document.querySelectorAll('.fade-in');
     fadeElements.forEach(el => observer.observe(el));
+
+    // Safety net: reveal anything still hidden after 2s (in case JS / IntersectionObserver fails)
+    setTimeout(() => {
+        document.querySelectorAll('.fade-in:not(.visible)').forEach(el => el.classList.add('visible'));
+    }, 2000);
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
