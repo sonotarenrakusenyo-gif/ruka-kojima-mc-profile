@@ -1,7 +1,12 @@
 ■ お問い合わせフォーム
 
 送信先メール: kojimaruka.oshigotosenyo@gmail.com
-（js/main.js に設定済み）
+（index.html / js/main.js に設定済み）
 
-※ 初回のフォーム送信時に FormSubmit から確認メールが届く場合があります。
-   メール内のリンクをクリックすると、以降のお問い合わせが受信できるようになります。
+【初回だけ必ず行ってください】
+1. サイトのお問い合わせフォームからテスト送信する
+2. kojimaruka.oshigotosenyo@gmail.com に FormSubmit からメールが届く
+3. メール内の「Activate Form」などのリンクをクリックして有効化する
+4. 有効化後、フォームからのお問い合わせが Gmail に届くようになります
+
+※ 届かない場合は迷惑メールフォルダもご確認ください。

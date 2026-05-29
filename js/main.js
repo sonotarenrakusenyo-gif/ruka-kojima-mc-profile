@@ -104,9 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Contact form
+    // Contact form (FormSubmit → kojimaruka.oshigotosenyo@gmail.com)
     const contactForm = document.getElementById('inquiry-form');
+    const submitBtn = contactForm?.querySelector('.form-submit');
+
     if (contactForm) {
+        contactForm.setAttribute('action', `https://formsubmit.co/${encodeURIComponent(CONTACT_RECEIVE_EMAIL)}`);
+        contactForm.setAttribute('method', 'POST');
+
         contactForm.addEventListener('submit', async (e) => {
             if (!contactForm.checkValidity()) return;
             e.preventDefault();
@@ -118,30 +123,64 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = formData.get('お問い合わせ内容') || '';
             const email = formData.get('email') || '';
 
-            if (CONTACT_RECEIVE_EMAIL) {
-                const submitData = new FormData();
-                submitData.append('_subject', '【公式サイト】お問い合わせ');
-                submitData.append('_template', 'table');
-                submitData.append('_captcha', 'false');
-                for (const [key, value] of formData.entries()) {
-                    if (key !== '_honey') submitData.append(key, value);
-                }
-                submitData.append('_next', `${window.location.origin}${window.location.pathname}#contact-thanks`);
+            if (!CONTACT_RECEIVE_EMAIL) {
+                alert('フォーム送信の設定が完了していないため、Instagram DM（@kojima_ruka）またはページ下部の SNS からご連絡ください。');
+                return;
+            }
 
+            const submitData = new FormData();
+            submitData.append('_subject', '【公式サイト】お問い合わせ');
+            submitData.append('_template', 'table');
+            submitData.append('_captcha', 'false');
+            if (email) submitData.append('_replyto', email);
+            for (const [key, value] of formData.entries()) {
+                if (key !== '_honey') submitData.append(key, value);
+            }
+            submitData.append('_next', `${window.location.origin}${window.location.pathname}#contact-thanks`);
+
+            const defaultLabel = submitBtn?.textContent || '送信する';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = '送信中…';
+            }
+
+            try {
+                const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_RECEIVE_EMAIL)}`, {
+                    method: 'POST',
+                    body: submitData,
+                    headers: { Accept: 'application/json' }
+                });
+
+                let result = {};
                 try {
-                    const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_RECEIVE_EMAIL)}`, {
-                        method: 'POST',
-                        body: submitData,
-                        headers: { Accept: 'application/json' }
-                    });
-                    if (res.ok) {
-                        contactForm.reset();
-                        window.location.hash = 'contact-thanks';
-                        alert('お問い合わせを送信しました。ご連絡ありがとうございます。');
-                        return;
-                    }
-                } catch (err) {
-                    console.error(err);
+                    result = await res.json();
+                } catch (_) {
+                    result = {};
+                }
+
+                if (res.ok && result.success !== 'false') {
+                    contactForm.reset();
+                    window.location.hash = 'contact-thanks';
+                    alert('お問い合わせを送信しました。ご連絡ありがとうございます。');
+                    return;
+                }
+
+                console.error('FormSubmit error', res.status, result);
+
+                if (res.status === 403 || (result.message && /activate|confirm/i.test(result.message))) {
+                    alert(
+                        '初回設定の確認メールを FormSubmit から kojimaruka.oshigotosenyo@gmail.com にお送りしています。\n\n' +
+                        '受信トレイ（迷惑メールフォルダも）を開き、メール内のリンクをクリックして有効化してください。\n' +
+                        '有効化後、もう一度フォームから送信してください。'
+                    );
+                    return;
+                }
+            } catch (err) {
+                console.error(err);
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = defaultLabel;
                 }
             }
 
@@ -155,10 +194,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 `種別: ${inquiry}\n\n` +
                 `内容:\n${message}`
             );
-            if (CONTACT_RECEIVE_EMAIL) {
+
+            const useMailFallback = window.confirm(
+                'フォームからの自動送信に失敗しました。\nメールアプリで送信しますか？\n\n' +
+                '※ 初回のみ FormSubmit から確認メールが届く場合があります。リンクをクリックすると、次回からフォーム送信が届きます。'
+            );
+            if (useMailFallback) {
                 window.location.href = `mailto:${CONTACT_RECEIVE_EMAIL}?subject=${subject}&body=${body}`;
             }
-            alert('フォーム送信の設定が完了していないため、Instagram DM（@kojima_ruka）またはページ下部の SNS からご連絡ください。');
         });
     }
 
