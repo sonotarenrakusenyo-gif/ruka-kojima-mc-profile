@@ -1017,10 +1017,6 @@ img { display: block; max-width: 100%; }
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .latest-list li:nth-child(n+14) {
-        display: none;
-    }
-
     .latest-title {
         font-size: 0.84rem;
         line-height: 1.55;
@@ -1659,9 +1655,6 @@ img { display: block; max-width: 100%; }
         flex-direction: column;
     }
 
-    .latest-list li:nth-child(n+14) {
-        display: none;
-    }
 }
 
 @media (max-width: 768px) {
