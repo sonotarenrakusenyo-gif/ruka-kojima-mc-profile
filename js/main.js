@@ -43,26 +43,48 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.fade-in:not(.visible)').forEach(el => el.classList.add('visible'));
     }, 2000);
 
+    function getScrollOffset() {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return 96;
+        return navbar.getBoundingClientRect().height + 24;
+    }
+
     function scrollToTarget(target) {
         closeContactMenu();
 
         const navbar = document.querySelector('.navbar');
-        const offset = (navbar?.getBoundingClientRect().height ?? 80) + 20;
-        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        // Use the compact nav height so the first click lands correctly on desktop.
+        navbar?.classList.add('scrolled');
 
-        const computeTop = () => {
-            const top = window.scrollY + target.getBoundingClientRect().top - offset;
-            return Math.min(Math.max(0, top), maxScroll);
-        };
+        requestAnimationFrame(() => {
+            const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
 
-        window.scrollTo({ top: computeTop(), behavior: 'smooth' });
+            const computeTop = () => {
+                const offset = getScrollOffset();
+                const top = window.scrollY + target.getBoundingClientRect().top - offset;
+                return Math.min(Math.max(0, top), maxScroll);
+            };
 
-        window.setTimeout(() => {
-            const top = computeTop();
-            if (Math.abs(window.scrollY - top) > 6) {
-                window.scrollTo({ top, behavior: 'auto' });
+            const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+            const behavior = isDesktop ? 'instant' : 'smooth';
+
+            window.scrollTo({ top: computeTop(), behavior });
+
+            const finalize = () => {
+                const top = computeTop();
+                if (Math.abs(window.scrollY - top) > 2) {
+                    window.scrollTo({ top, behavior: 'instant' });
+                }
+            };
+
+            if (behavior === 'instant') {
+                requestAnimationFrame(finalize);
+            } else if ('onscrollend' in window) {
+                window.addEventListener('scrollend', finalize, { once: true });
+            } else {
+                window.setTimeout(finalize, 900);
             }
-        }, 700);
+        });
     }
 
     // Smooth scroll for anchor links
