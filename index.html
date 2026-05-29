@@ -472,11 +472,16 @@
     <section id="contact" class="section">
         <div class="container fade-in">
             <h2 class="section-title text-center">Contact<span class="section-title-jp">お問い合わせ</span></h2>
-            <p class="contact-desc text-center">お仕事のご依頼・ご相談は、下記フォームまたは各SNSのDMよりお気軽にご連絡ください。</p>
+            <p class="contact-desc text-center">お仕事のご依頼・ご相談は、<strong>お問い合わせフォーム</strong>または各SNSのDMよりお気軽にご連絡ください。</p>
 
             <div class="contact-layout">
-                <!-- 送信先: js/main.js の CONTACT_RECEIVE_EMAIL にメールアドレスを設定するとフォーム送信が有効になります -->
-                <form id="contact-form" class="contact-form" action="#" method="POST">
+                <div class="contact-form-card" id="contact-form">
+                    <div class="contact-form-head">
+                        <span class="contact-form-badge">Inquiry Form</span>
+                        <h3 class="contact-form-title">お問い合わせフォーム</h3>
+                        <p class="contact-form-lead">企業様・お仕事のご依頼・ご相談は、下記にご入力のうえ送信してください。</p>
+                    </div>
+                    <form id="inquiry-form" class="contact-form" action="#" method="POST">
                     <input type="hidden" name="_subject" value="【公式サイト】お問い合わせ">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
@@ -537,7 +542,8 @@
 
                     <button type="submit" class="form-submit">送信する</button>
                     <p class="form-note">※ 送信後、確認メールが届かない場合は Instagram DM でもご連絡いただけます。</p>
-                </form>
+                    </form>
+                </div>
 
                 <div class="contact-sns" id="contact-thanks">
                     <h3 class="contact-sns-title">SNSでもお気軽に</h3>

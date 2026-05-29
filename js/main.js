@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Contact form
-    const contactForm = document.getElementById('contact-form');
+    const contactForm = document.getElementById('inquiry-form');
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
             if (!contactForm.checkValidity()) return;
