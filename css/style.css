@@ -450,20 +450,21 @@ img { display: block; max-width: 100%; }
     display: none;
 }
 
-/* Hero pricing */
-.bento-pricing {
-    margin-top: 1.1rem;
-    padding-top: 1.1rem;
-    border-top: 1px solid var(--border-soft);
+/* Pricing section */
+.section-pricing {
+    padding: 52px 0;
 }
 
-.bento-pricing-title {
-    font-family: var(--font-jp-display);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--accent-gold);
-    letter-spacing: 0.1em;
-    margin-bottom: 0.85rem;
+.section-pricing .section-title {
+    margin-bottom: 2rem;
+}
+
+.pricing-panel {
+    background: var(--bg-card);
+    border-radius: var(--radius-card);
+    padding: 1.75rem 1.5rem;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
 }
 
 .price-block {
@@ -544,18 +545,17 @@ img { display: block; max-width: 100%; }
     padding-bottom: 0;
 }
 
-.price-sublist li span:last-child {
-    font-family: var(--font-en-sans);
-    font-weight: 600;
-    color: var(--text-primary);
+.price-sublist .price-item-amount {
+    display: inline;
+    font-size: 0.84rem;
     white-space: nowrap;
 }
 
-.bento-pricing-tax {
+.pricing-tax {
     font-size: 0.7rem;
     color: var(--text-muted);
     text-align: right;
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
     letter-spacing: 0.03em;
 }
 
@@ -982,13 +982,32 @@ img { display: block; max-width: 100%; }
         padding: 1.35rem 1.75rem 1.75rem;
     }
 
-    .bento-pricing {
-        margin-top: 1.25rem;
-        padding-top: 1.15rem;
+    .section-pricing {
+        padding: 32px 0 40px;
     }
 
-    .bento-pricing-title {
-        font-size: 1.05rem;
+    .section-pricing .section-title {
+        margin-bottom: 1.5rem;
+        font-size: 2.2rem;
+    }
+
+    .pricing-panel {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+        row-gap: 0.15rem;
+        padding: 1.65rem 2rem;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .price-block--wide {
+        grid-column: 1 / -1;
+    }
+
+    .pricing-tax {
+        grid-column: 1 / -1;
+        margin-top: 0.35rem;
     }
 
     .bento-latest {
@@ -1015,6 +1034,10 @@ img { display: block; max-width: 100%; }
         padding: 0.5rem 0;
         font-size: 0.8rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .latest-list li:nth-child(n+13) {
+        display: none;
     }
 
     .latest-title {
@@ -1655,6 +1678,10 @@ img { display: block; max-width: 100%; }
         flex-direction: column;
     }
 
+    .latest-list li:nth-child(n+13) {
+        display: none;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -1883,9 +1910,17 @@ img { display: block; max-width: 100%; }
         margin-bottom: 0;
     }
 
-    .bento-pricing-title {
-        font-size: 0.92rem;
-        margin-bottom: 0.7rem;
+    .section-pricing {
+        padding: 2rem 0 2.5rem;
+    }
+
+    .section-pricing .section-title {
+        margin-bottom: 1.25rem;
+        font-size: 1.85rem;
+    }
+
+    .pricing-panel {
+        padding: 1.2rem 1rem;
     }
 
     .price-block-title {
@@ -1897,7 +1932,8 @@ img { display: block; max-width: 100%; }
         font-size: 0.76rem;
     }
 
-    .price-item-amount {
+    .price-item-amount,
+    .price-sublist .price-item-amount {
         font-size: 0.8rem;
     }
 
