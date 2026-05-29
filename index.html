@@ -21,14 +21,14 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-contact">
-                <a href="#contact-form" class="nav-contact-cta js-google-form-link" aria-label="お問い合わせフォームを開く">
+                <a href="#contact-email" class="nav-contact-cta" aria-label="お問い合わせメールへ">
                     <span class="nav-contact-cta-icon" aria-hidden="true">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
                     </span>
-                    <span class="nav-contact-cta-text nav-contact-cta-text--full">お問い合わせフォームを開く</span>
+                    <span class="nav-contact-cta-text nav-contact-cta-text--full">お問い合わせ</span>
                     <span class="nav-contact-cta-text nav-contact-cta-text--short">お問い合わせ</span>
                 </a>
                 <button type="button" class="nav-contact-sns-btn" id="nav-contact-btn" aria-label="SNSメニューを開く" aria-expanded="false" aria-controls="nav-contact-menu">
@@ -37,9 +37,9 @@
                 </button>
                 <div class="nav-contact-menu" id="nav-contact-menu" hidden>
                     <p class="nav-contact-menu-title">お問い合わせ・SNS</p>
-                    <a href="#contact-form" class="nav-contact-menu-item js-google-form-link">
-                        <span>お問い合わせフォーム</span>
-                        <small>Google フォーム（新しいタブ）</small>
+                    <a href="#contact-email" class="nav-contact-menu-item">
+                        <span>メール</span>
+                        <small>kojimaruka.oshigotosenyo@gmail.com</small>
                     </a>
                     <a href="https://www.instagram.com/kojima_ruka?igsh=MXJ2bzU2Y2VnbmRpZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="nav-contact-menu-item">
                         <span>Instagram</span>
@@ -551,23 +551,19 @@
     <section id="contact" class="section">
         <div class="container fade-in">
             <h2 class="section-title text-center">Contact<span class="section-title-jp">お問い合わせ</span></h2>
-            <p class="contact-desc text-center">お仕事のご依頼・ご相談は、<strong>Google フォーム</strong>または各SNSのDMよりお気軽にご連絡ください。</p>
+            <p class="contact-desc text-center">お仕事のご依頼・ご相談は、<strong>メール</strong>または各SNSのDMよりお気軽にご連絡ください。</p>
 
             <div class="contact-layout">
-                <div class="contact-form-card" id="contact-form">
-                    <div class="contact-form-head">
-                        <span class="contact-form-badge">Inquiry Form</span>
-                        <h3 class="contact-form-title">お問い合わせフォーム</h3>
-                        <p class="contact-form-lead">ボタンを押すと Google フォームが開きます。Google アカウントは不要です。</p>
+                <div class="contact-email-card" id="contact-email">
+                    <div class="contact-email-head">
+                        <span class="contact-email-badge">Email</span>
+                        <h3 class="contact-email-title">メールでのお問い合わせ</h3>
+                        <p class="contact-email-lead">企業様・お仕事のご依頼・ご相談は、下記メールアドレスまでお送りください。</p>
                     </div>
-                    <div class="google-form-body">
-                        <ol class="google-form-steps">
-                            <li>下のボタンをタップ</li>
-                            <li>必要事項を入力</li>
-                            <li>「送信」を押す</li>
-                        </ol>
-                        <a href="#contact-form" class="form-submit js-google-form-link">フォームを開いて送信する</a>
-                        <p class="form-note">新しいタブで開きます。送信後、確認画面が表示されます。</p>
+                    <div class="contact-email-body">
+                        <a href="mailto:kojimaruka.oshigotosenyo@gmail.com" class="contact-email-address">kojimaruka.oshigotosenyo@gmail.com</a>
+                        <a href="mailto:kojimaruka.oshigotosenyo@gmail.com?subject=%E3%80%90%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%80%91" class="form-submit contact-email-btn">メールを送る</a>
+                        <p class="form-note">タップするとメールアプリが開きます。</p>
                     </div>
                 </div>
 
@@ -593,7 +589,6 @@
         </svg>
     </a>
 
-    <script src="js/config.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

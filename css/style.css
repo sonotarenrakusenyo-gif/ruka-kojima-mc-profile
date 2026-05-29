@@ -1256,7 +1256,7 @@ img { display: block; max-width: 100%; }
     margin: 0 auto;
 }
 
-.contact-form-card {
+.contact-email-card {
     background: var(--bg-card);
     border: 1px solid var(--border-soft);
     border-radius: var(--radius-card);
@@ -1265,14 +1265,14 @@ img { display: block; max-width: 100%; }
     overflow: hidden;
 }
 
-.contact-form-head {
+.contact-email-head {
     background: linear-gradient(135deg, var(--bg-cream) 0%, #f0e6d6 100%);
     border-bottom: 2px solid var(--accent-gold);
     padding: 1.5rem 2rem 1.35rem;
     text-align: center;
 }
 
-.contact-form-badge {
+.contact-email-badge {
     display: inline-block;
     font-family: var(--font-en-sans);
     font-size: 0.68rem;
@@ -1283,7 +1283,7 @@ img { display: block; max-width: 100%; }
     margin-bottom: 0.5rem;
 }
 
-.contact-form-title {
+.contact-email-title {
     font-family: var(--font-jp-display);
     font-size: 1.65rem;
     font-weight: 600;
@@ -1292,111 +1292,42 @@ img { display: block; max-width: 100%; }
     line-height: 1.4;
 }
 
-.contact-form-lead {
+.contact-email-lead {
     font-size: 0.9rem;
     color: var(--text-secondary);
     margin: 0;
     line-height: 1.65;
 }
 
-.google-form-body {
+.contact-email-body {
     padding: 2rem;
     text-align: center;
 }
 
-.google-form-steps {
-    list-style: none;
-    margin: 0 0 1.5rem;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+.contact-email-address {
+    display: inline-block;
+    font-family: var(--font-en-sans);
+    font-size: clamp(0.82rem, 2.8vw, 1rem);
+    font-weight: 500;
+    color: var(--accent-gold);
+    word-break: break-all;
+    text-decoration: none;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
 }
 
-.google-form-steps li {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    background: var(--bg-cream);
-    border: 1px solid var(--border-soft);
-    border-radius: 999px;
-    padding: 0.45rem 0.85rem;
-    line-height: 1.4;
+.contact-email-address:hover {
+    text-decoration: underline;
+}
+
+.contact-email-btn {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-desc strong {
     color: var(--text-primary);
     font-weight: 600;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.form-group {
-    margin-bottom: 1.1rem;
-}
-
-.form-group label {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 0.45rem;
-}
-
-.required {
-    color: #c45c5c;
-    font-size: 0.72rem;
-    margin-left: 0.25rem;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-    width: 100%;
-    padding: 0.75rem 0.9rem;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 0.9rem;
-    color: var(--text-primary);
-    background: var(--bg-main);
-    transition: border-color 0.2s;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--accent-gold);
-}
-
-.contact-form textarea {
-    resize: vertical;
-    min-height: 140px;
-}
-
-.form-group--checkbox {
-    margin-top: 0.5rem;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    cursor: pointer;
-}
-
-.checkbox-label input {
-    width: auto;
-    margin-top: 0.25rem;
-    flex-shrink: 0;
 }
 
 .form-submit {
@@ -1914,26 +1845,18 @@ img { display: block; max-width: 100%; }
         max-height: 72px;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-form-head {
+    .contact-email-head {
         padding: 1.25rem 1.25rem 1.1rem;
     }
 
-    .contact-form-title {
+    .contact-email-title {
         font-size: 1.35rem;
     }
 
-    .google-form-body {
+    .contact-email-body {
         padding: 1.25rem;
     }
 
-    .google-form-steps {
-        flex-direction: column;
-        align-items: stretch;
-    }
     .container { padding: 0 1.25rem; }
     .section-title { font-size: 2rem; }
 

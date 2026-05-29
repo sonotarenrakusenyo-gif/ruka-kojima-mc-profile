@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const googleFormUrl = window.SITE_CONFIG?.googleFormUrl || '';
-
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     const backToTop = document.getElementById('back-to-top');
@@ -98,20 +96,4 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'Escape') closeContactMenu();
         });
     }
-
-    // Google Form links
-    document.querySelectorAll('.js-google-form-link').forEach(link => {
-        if (!googleFormUrl) {
-            link.setAttribute('aria-disabled', 'true');
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('お問い合わせフォームの URL が未設定です。js/config.js をご確認ください。');
-            });
-            return;
-        }
-
-        link.href = googleFormUrl;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-    });
 });
