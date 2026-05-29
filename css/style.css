@@ -91,12 +91,14 @@ img { display: block; max-width: 100%; }
 }
 
 .nav-container {
+    position: relative;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .logo {
@@ -137,6 +139,91 @@ img { display: block; max-width: 100%; }
 .nav-links a:hover { color: var(--text-primary); }
 .nav-links a:hover::after { width: 100%; }
 
+/* Nav contact menu */
+.nav-contact {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.nav-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-family: var(--font-en-sans);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+}
+
+.nav-contact-btn:hover,
+.nav-contact-btn[aria-expanded="true"] {
+    background: var(--text-primary);
+    color: var(--bg-card);
+    border-color: var(--text-primary);
+}
+
+.nav-contact-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 260px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card-sm);
+    box-shadow: var(--shadow-medium);
+    padding: 0.75rem;
+    z-index: 200;
+}
+
+.nav-contact-menu-title {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    font-family: var(--font-en-sans);
+    padding: 0.35rem 0.6rem 0.5rem;
+    margin: 0;
+}
+
+.nav-contact-menu-item {
+    display: block;
+    padding: 0.75rem 0.85rem;
+    border-radius: 10px;
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+}
+
+.nav-contact-menu-item span {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.nav-contact-menu-item small {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.nav-contact-menu-item:hover {
+    background: var(--bg-cream);
+}
+
+.nav-contact-menu-item--primary {
+    background: var(--bg-cream);
+    border: 1px solid var(--border-soft);
+    margin-bottom: 0.35rem;
+}
+
 /* ============ Bento Hero ============ */
 .hero-bento {
     padding: 100px 0 60px;
@@ -151,11 +238,11 @@ img { display: block; max-width: 100%; }
 
 .bento-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1.3fr;
+    grid-template-columns: 1.5fr 1fr 1.2fr;
     grid-template-rows: auto auto auto;
     grid-template-areas:
-        "portrait about    featured"
-        "portrait stats    featured"
+        "portrait about    latest"
+        "portrait stats    latest"
         "gallery  insta    latest";
     gap: 1.25rem;
 }
@@ -863,17 +950,148 @@ img { display: block; max-width: 100%; }
 .contact-desc {
     font-size: 1rem;
     color: var(--text-secondary);
-    margin-bottom: 2.5rem;
-    max-width: 600px;
+    margin-bottom: 2rem;
+    max-width: 640px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.contact-layout {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 2.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.45rem;
+}
+
+.required {
+    color: #c45c5c;
+    font-size: 0.72rem;
+    margin-left: 0.25rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    background: var(--bg-main);
+    transition: border-color 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form-group--checkbox {
+    margin-top: 0.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    width: auto;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.form-submit {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background: var(--text-primary);
+    color: var(--bg-card);
+    border: none;
+    border-radius: 30px;
+    font-family: var(--font-en-sans);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.form-submit:hover {
+    background: var(--accent-gold);
+    transform: translateY(-2px);
+}
+
+.form-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.contact-sns {
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+.contact-sns-title {
+    font-family: var(--font-jp-display);
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.contact-sns-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
     gap: 1.25rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     flex-wrap: wrap;
 }
 
@@ -927,17 +1145,21 @@ img { display: block; max-width: 100%; }
         grid-template-areas:
             "portrait portrait"
             "about    stats"
-            "featured featured"
-            "gallery  insta"
-            "latest   latest";
+            "gallery  gallery"
+            "insta    latest";
     }
-    .bento-featured { min-height: 360px; }
 }
 
 @media (max-width: 768px) {
     .nav-container { padding: 0 1.25rem; }
     .nav-links { display: none; }
     .logo { font-size: 1.2rem; letter-spacing: 2px; }
+    .nav-contact-label { display: none; }
+    .nav-contact-btn { padding: 0.6rem; border-radius: 50%; }
+    .nav-contact-menu {
+        right: -0.5rem;
+        min-width: min(280px, calc(100vw - 2rem));
+    }
 
     .hero-bento { padding: 90px 0 30px; }
     .bento-container { padding: 0 1rem; }
@@ -947,7 +1169,6 @@ img { display: block; max-width: 100%; }
         grid-template-areas:
             "portrait"
             "stats"
-            "featured"
             "about"
             "gallery"
             "insta"
@@ -974,11 +1195,50 @@ img { display: block; max-width: 100%; }
     .stat-big { font-size: 1.4rem; }
     .stat { gap: 0.5rem; }
 
-    .bento-featured { min-height: 320px; }
-    .bento-featured-overlay { padding: 1.75rem; }
-    .bento-featured h3 { font-size: 1.3rem; }
-
     .section { padding: 60px 0; }
+
+    /* スマホ: ギャラリーをコンパクトに（3列・小さめ） */
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.45rem;
+    }
+
+    .gallery-item {
+        border-radius: 8px;
+        box-shadow: none;
+        border: 1px solid var(--border-soft);
+    }
+
+    .gallery-item img {
+        max-height: 88px;
+        width: 100%;
+        object-fit: contain;
+        background: var(--bg-cream);
+    }
+
+    .gallery-item--landscape {
+        grid-column: 1 / -1;
+    }
+
+    .gallery-item--landscape img {
+        max-height: 110px;
+    }
+
+    .gallery-mini-grid {
+        gap: 0.35rem;
+    }
+
+    .gallery-mini-grid img {
+        max-height: 72px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 1.25rem;
+    }
     .container { padding: 0 1.25rem; }
     .section-title { font-size: 2rem; }
 

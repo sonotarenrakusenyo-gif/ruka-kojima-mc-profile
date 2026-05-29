@@ -20,6 +20,30 @@
                 <li><a href="#works">Works</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="nav-contact">
+                <button type="button" class="nav-contact-btn" id="nav-contact-btn" aria-label="お問い合わせメニューを開く" aria-expanded="false" aria-controls="nav-contact-menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <span class="nav-contact-label">Contact</span>
+                </button>
+                <div class="nav-contact-menu" id="nav-contact-menu" hidden>
+                    <p class="nav-contact-menu-title">お問い合わせ</p>
+                    <a href="#contact-form" class="nav-contact-menu-item nav-contact-menu-item--primary">
+                        <span>お問い合わせフォーム</span>
+                        <small>企業様・お仕事のご依頼</small>
+                    </a>
+                    <a href="https://www.instagram.com/kojima_ruka?igsh=MXJ2bzU2Y2VnbmRpZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="nav-contact-menu-item">
+                        <span>Instagram</span>
+                        <small>@kojima_ruka</small>
+                    </a>
+                    <a href="https://x.com/kojiruka?s=21&t=tE7_8w9Xbax5vSNqFeScvg" target="_blank" rel="noopener noreferrer" class="nav-contact-menu-item">
+                        <span>X (Twitter)</span>
+                        <small>@kojiruka</small>
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -75,16 +99,6 @@
                                 <p class="stat-sub">出演実績</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Featured / On Stage Card (dark) -->
-                <div class="bento-card bento-featured">
-                    <img src="images/hero.png" alt="On Stage" class="bento-featured-bg">
-                    <div class="bento-featured-overlay">
-                        <span class="bento-eyebrow bento-eyebrow--light">On Stage</span>
-                        <h3>ステージで、響かせる。</h3>
-                        <p>Sports / Ceremony / Corporate MC</p>
                     </div>
                 </div>
 
@@ -456,12 +470,83 @@
 
     <!-- Contact Section -->
     <section id="contact" class="section">
-        <div class="container fade-in text-center">
+        <div class="container fade-in">
             <h2 class="section-title text-center">Contact<span class="section-title-jp">お問い合わせ</span></h2>
-            <p class="contact-desc">お仕事のご依頼やメッセージは、各SNSのDMよりお待ちしております。</p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/kojima_ruka?igsh=MXJ2bzU2Y2VnbmRpZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram (@kojima_ruka)</a>
-                <a href="https://x.com/kojiruka?s=21&t=tE7_8w9Xbax5vSNqFeScvg" target="_blank" rel="noopener noreferrer" class="social-btn">X (Twitter)</a>
+            <p class="contact-desc text-center">お仕事のご依頼・ご相談は、下記フォームまたは各SNSのDMよりお気軽にご連絡ください。</p>
+
+            <div class="contact-layout">
+                <!-- 送信先: js/main.js の CONTACT_RECEIVE_EMAIL にメールアドレスを設定するとフォーム送信が有効になります -->
+                <form id="contact-form" class="contact-form" action="#" method="POST">
+                    <input type="hidden" name="_subject" value="【公式サイト】お問い合わせ">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                    <input type="hidden" name="_next" value="https://ruka-kojima-mc-profile.vercel.app/#contact-thanks">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">会社名・団体名</label>
+                            <input type="text" id="company" name="会社名・団体名" placeholder="株式会社〇〇（任意）">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">お名前 <span class="required">必須</span></label>
+                            <input type="text" id="name" name="お名前" required placeholder="小島 瑠夏">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="kana">ふりがな</label>
+                            <input type="text" id="kana" name="ふりがな" placeholder="こじま るか（任意）">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span class="required">必須</span></label>
+                            <input type="email" id="email" name="email" required placeholder="example@company.co.jp">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tel">電話番号</label>
+                            <input type="tel" id="tel" name="電話番号" placeholder="090-0000-0000（任意）">
+                        </div>
+                        <div class="form-group">
+                            <label for="inquiry-type">お問い合わせ種別 <span class="required">必須</span></label>
+                            <select id="inquiry-type" name="お問い合わせ種別" required>
+                                <option value="" disabled selected>選択してください</option>
+                                <option value="MC・イベントのご依頼">MC・イベントのご依頼</option>
+                                <option value="ナレーション・レポーター">ナレーション・レポーター</option>
+                                <option value="モデル・広告・PR案件">モデル・広告・PR案件</option>
+                                <option value="取材・メディア関連">取材・メディア関連</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+                        <textarea id="message" name="お問い合わせ内容" rows="6" required placeholder="ご依頼内容、日程の目安、会場・規模などをご記入ください。"></textarea>
+                    </div>
+
+                    <div class="form-group form-group--checkbox">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="個人情報の取り扱い" value="同意する" required>
+                            <span>お預かりした個人情報は、お問い合わせへの返信目的のみに使用いたします。</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="form-submit">送信する</button>
+                    <p class="form-note">※ 送信後、確認メールが届かない場合は Instagram DM でもご連絡いただけます。</p>
+                </form>
+
+                <div class="contact-sns" id="contact-thanks">
+                    <h3 class="contact-sns-title">SNSでもお気軽に</h3>
+                    <p class="contact-sns-desc">DMでのご連絡も承っております。</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/kojima_ruka?igsh=MXJ2bzU2Y2VnbmRpZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--instagram">Instagram (@kojima_ruka)</a>
+                        <a href="https://x.com/kojiruka?s=21&t=tE7_8w9Xbax5vSNqFeScvg" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--x">X (Twitter)</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
