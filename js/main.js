@@ -43,24 +43,46 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.fade-in:not(.visible)').forEach(el => el.classList.add('visible'));
     }, 2000);
 
+    function scrollToTarget(target) {
+        closeContactMenu();
+
+        const navbar = document.querySelector('.navbar');
+        const offset = (navbar?.getBoundingClientRect().height ?? 80) + 20;
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+        const computeTop = () => {
+            const top = window.scrollY + target.getBoundingClientRect().top - offset;
+            return Math.min(Math.max(0, top), maxScroll);
+        };
+
+        window.scrollTo({ top: computeTop(), behavior: 'smooth' });
+
+        window.setTimeout(() => {
+            const top = computeTop();
+            if (Math.abs(window.scrollY - top) > 6) {
+                window.scrollTo({ top, behavior: 'auto' });
+            }
+        }, 700);
+    }
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href === '#') return;
-            e.preventDefault();
             const target = document.querySelector(href);
-            if (target) {
-                closeContactMenu();
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
+            if (!target) return;
+            e.preventDefault();
+            scrollToTarget(target);
         });
     });
+
+    if (window.location.hash) {
+        const initialTarget = document.querySelector(window.location.hash);
+        if (initialTarget) {
+            window.setTimeout(() => scrollToTarget(initialTarget), 100);
+        }
+    }
 
     // Nav contact dropdown
     const contactBtn = document.getElementById('nav-contact-btn');

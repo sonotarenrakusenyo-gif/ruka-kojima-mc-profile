@@ -39,6 +39,8 @@
 
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --transition-fast: all 0.25s ease-out;
+
+    --nav-scroll-offset: 6.5rem;
 }
 
 * {
@@ -49,6 +51,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-scroll-offset);
 }
 
 body {
@@ -994,6 +997,10 @@ img { display: block; max-width: 100%; }
 .section {
     padding: 80px 0;
     background-color: var(--bg-main);
+}
+
+#contact {
+    scroll-margin-top: var(--nav-scroll-offset);
 }
 
 .section.bg-soft { background-color: var(--bg-cream); }
