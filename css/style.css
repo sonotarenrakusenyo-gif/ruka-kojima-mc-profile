@@ -714,15 +714,18 @@ img { display: block; max-width: 100%; }
 
 .bento-instagram .bento-eyebrow { color: var(--accent-peach); }
 
+.bento-insta-handles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin: 1rem 0 0.85rem;
+}
+
 .bento-insta-handle {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    margin: 1rem 0 0.8rem;
-}
-
-.bento-insta-handle--x {
-    margin: 0 0 0.65rem;
+    margin: 0;
 }
 
 .bento-insta-icon {
@@ -760,21 +763,19 @@ img { display: block; max-width: 100%; }
     color: var(--text-secondary);
     line-height: 1.7;
     flex: 1;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
 }
 
-.bento-insta-divider {
-    height: 1px;
-    background: rgba(26, 26, 29, 0.1);
-    margin: 0.85rem 0 0.9rem;
+.bento-insta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
 }
 
 .bento-instagram .bento-link {
-    padding-top: 0.65rem;
-}
-
-.bento-instagram .bento-link + .bento-insta-divider {
-    margin-top: 0.5rem;
+    padding-top: 0.5rem;
 }
 
 /* ---- Latest Works Card (dark) ---- */
