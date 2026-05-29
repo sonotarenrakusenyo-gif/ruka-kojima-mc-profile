@@ -184,6 +184,11 @@ img { display: block; max-width: 100%; }
     font-weight: 600;
     line-height: 1.35;
     letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.nav-contact-cta-text--short {
+    display: none;
 }
 
 .nav-contact-sns-btn {
@@ -379,20 +384,53 @@ img { display: block; max-width: 100%; }
     margin-bottom: 1.5rem;
 }
 
+.bento-headline-block {
+    margin-bottom: 0.5rem;
+}
+
+.headline-label {
+    display: none;
+}
+
 .bento-headline {
     font-family: var(--font-jp-display);
     font-size: 2.3rem;
     font-weight: 500;
     color: var(--text-primary);
-    line-height: 1.5;
-    letter-spacing: 1px;
-    margin-bottom: 1.5rem;
+    line-height: 1.55;
+    letter-spacing: 0.04em;
+    margin: 0 0 1.25rem;
+}
+
+.headline-row {
+    display: block;
+}
+
+.headline-row--tail {
+    margin-top: 0.2em;
+}
+
+.headline-accent {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.headline-phrase {
+    display: inline;
+}
+
+.headline-phrase + .headline-phrase::before {
+    content: ' ';
 }
 
 .bento-divider {
     width: 40px;
     height: 2px;
     background: var(--accent-gold);
+    margin-bottom: 0;
+}
+
+.bento-intro {
     margin-bottom: 1.5rem;
 }
 
@@ -401,6 +439,10 @@ img { display: block; max-width: 100%; }
     color: var(--text-secondary);
     line-height: 1.85;
     margin-bottom: 1.5rem;
+}
+
+.bio-lead {
+    display: none;
 }
 
 .bento-signature { margin-top: auto; }
@@ -1235,49 +1277,81 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 768px) {
-    .nav-container { padding: 0 1.25rem; }
+    .nav-container {
+        padding: 0 0.85rem;
+        gap: 0.5rem;
+    }
+
     .nav-links { display: none; }
+
     .logo {
-        font-size: 1rem;
-        letter-spacing: 1.5px;
-        max-width: 42%;
+        flex: 0 1 auto;
+        min-width: 0;
+        font-size: 0.88rem;
+        letter-spacing: 1px;
+        max-width: 36%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .nav-contact {
-        gap: 0.35rem;
+        flex: 1 1 auto;
+        min-width: 0;
+        justify-content: flex-end;
+        gap: 0.3rem;
     }
 
     .nav-contact-cta {
-        padding: 0.5rem 0.75rem;
-        max-width: min(220px, 58vw);
+        flex: 0 1 auto;
+        min-width: 0;
+        padding: 0.45rem 0.65rem;
+        max-width: none;
+        gap: 0.4rem;
     }
 
     .nav-contact-cta-icon {
-        width: 1.65rem;
-        height: 1.65rem;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 
     .nav-contact-cta-icon svg {
-        width: 16px;
-        height: 16px;
+        width: 15px;
+        height: 15px;
     }
 
-    .nav-contact-cta-text {
-        font-size: 0.68rem;
-        line-height: 1.3;
+    .nav-contact-cta-text--full {
+        display: none;
+    }
+
+    .nav-contact-cta-text--short {
+        display: inline;
+        font-size: 0.72rem;
+        line-height: 1.2;
+        letter-spacing: 0;
     }
 
     .nav-contact-sns-btn {
-        padding: 0.5rem 0.55rem;
-        font-size: 0.62rem;
+        flex-shrink: 0;
+        padding: 0.45rem 0.5rem;
+        font-size: 0.6rem;
+        gap: 0.15rem;
+    }
+
+    .nav-contact-sns-btn svg {
+        width: 12px;
+        height: 12px;
     }
 
     .nav-contact-menu {
         right: 0;
-        min-width: min(280px, calc(100vw - 2rem));
+        min-width: min(280px, calc(100vw - 1.7rem));
     }
 
-    .hero-bento { padding: 90px 0 30px; }
+    .hero-bento {
+        padding: 5.25rem 0 28px;
+    }
+
     .bento-container { padding: 0 1rem; }
 
     .bento-grid {
@@ -1293,19 +1367,164 @@ img { display: block; max-width: 100%; }
     }
 
     .bento-portrait {
+        position: relative;
         grid-template-columns: 1fr;
-        padding: 1.75rem;
-        gap: 1.5rem;
+        padding: 0;
+        gap: 0;
+        overflow: visible;
+        border: none;
+        box-shadow: var(--shadow-medium);
     }
 
     .bento-portrait-img {
         order: -1;
+        position: relative;
         aspect-ratio: 4/5;
-        max-height: 420px;
+        max-height: 340px;
+        border-radius: var(--radius-card) var(--radius-card) 0 0;
     }
 
-    .bento-headline { font-size: 1.6rem; }
-    .signature-script { font-size: 1.6rem; }
+    .bento-portrait-img::after {
+        content: '';
+        position: absolute;
+        inset: auto 0 0;
+        height: 45%;
+        background: linear-gradient(180deg, transparent 0%, rgba(26, 26, 29, 0.22) 100%);
+        pointer-events: none;
+    }
+
+    .bento-portrait-text {
+        padding: 0 0 1.35rem;
+    }
+
+    .bento-portrait-text .bento-eyebrow {
+        position: absolute;
+        top: 0.85rem;
+        left: 0.85rem;
+        z-index: 4;
+        margin: 0;
+        padding: 0.35rem 0.65rem;
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 999px;
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+        backdrop-filter: blur(6px);
+    }
+
+    .bento-headline-block {
+        margin: -2rem 0.75rem 0;
+        position: relative;
+        z-index: 3;
+        padding: 1.1rem 1rem 1rem;
+        text-align: center;
+        background: var(--bg-card);
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        box-shadow: 0 10px 36px rgba(40, 30, 20, 0.1);
+    }
+
+    .headline-label {
+        display: block;
+        font-family: var(--font-en-sans);
+        font-size: 0.62rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent-gold);
+        margin: 0 0 0.6rem;
+        font-weight: 500;
+    }
+
+    .bento-headline {
+        font-size: inherit;
+        line-height: 1.5;
+        letter-spacing: 0.03em;
+        margin-bottom: 0.85rem;
+    }
+
+    .headline-row--lead {
+        font-size: clamp(1.32rem, 5.4vw, 1.58rem);
+        line-height: 1.45;
+        margin-bottom: 0.65rem;
+    }
+
+    .headline-accent {
+        font-size: 1.28em;
+        margin-right: 0.02em;
+        padding-bottom: 0.08em;
+        border-bottom: 2px solid rgba(184, 149, 106, 0.4);
+    }
+
+    .headline-row--tail {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        margin-top: 0;
+        padding-top: 0.65rem;
+        border-top: 1px solid var(--border-soft);
+    }
+
+    .headline-phrase {
+        display: block;
+        font-size: clamp(1.08rem, 4.2vw, 1.24rem);
+        color: var(--text-primary);
+        line-height: 1.5;
+        letter-spacing: 0.06em;
+    }
+
+    .headline-phrase + .headline-phrase::before {
+        content: none;
+    }
+
+    .bento-divider {
+        width: 44px;
+        height: 2px;
+        margin: 0 auto;
+    }
+
+    .bento-intro {
+        margin: 0.85rem 0.75rem 0.65rem;
+        padding: 0.95rem 1rem;
+        background: var(--bg-cream);
+        border-radius: 12px;
+        border: 1px solid var(--border-soft);
+    }
+
+    .bento-bio {
+        font-size: 0.84rem;
+        line-height: 1.75;
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+    .bio-lead {
+        display: block;
+        font-family: var(--font-jp-display);
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        letter-spacing: 0.06em;
+        margin-bottom: 0.45rem;
+        padding-left: 0.75rem;
+        border-left: 3px solid var(--accent-gold);
+    }
+
+    .bio-text {
+        display: block;
+        color: var(--text-secondary);
+    }
+
+    .bento-signature {
+        padding: 0 1rem;
+        text-align: center;
+        margin-top: 0.25rem;
+    }
+
+    .signature-script { font-size: 1.45rem; }
+    .signature-role {
+        font-size: 0.64rem;
+        letter-spacing: 1.5px;
+        line-height: 1.5;
+    }
 
     .stats-row { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
     .stat-big { font-size: 1.4rem; }
@@ -1368,6 +1587,22 @@ img { display: block; max-width: 100%; }
 
     .about-grid { grid-template-columns: 1fr; gap: 2rem; }
     .about-image { max-width: 360px; margin: 0 auto; }
+}
+
+@media (max-width: 380px) {
+    .logo {
+        max-width: 30%;
+        font-size: 0.78rem;
+        letter-spacing: 0.5px;
+    }
+
+    .nav-contact-cta-text--short {
+        display: none;
+    }
+
+    .nav-contact-cta {
+        padding: 0.42rem;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
