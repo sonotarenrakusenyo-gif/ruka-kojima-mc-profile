@@ -6,13 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     
+    const backToTop = document.getElementById('back-to-top');
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    });
+
+        if (backToTop) {
+            if (window.scrollY > 400) {
+                backToTop.hidden = false;
+                backToTop.classList.add('is-visible');
+            } else {
+                backToTop.classList.remove('is-visible');
+                backToTop.hidden = true;
+            }
+        }
+    }, { passive: true });
 
     // Intersection Observer for scroll animations
     const observerOptions = {
