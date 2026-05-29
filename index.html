@@ -21,14 +21,14 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-contact">
-                <a href="#contact-form" class="nav-contact-cta" aria-label="お問い合わせフォームはこちら">
+                <a href="#contact-form" class="nav-contact-cta js-google-form-link" aria-label="お問い合わせフォームを開く">
                     <span class="nav-contact-cta-icon" aria-hidden="true">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
                     </span>
-                    <span class="nav-contact-cta-text nav-contact-cta-text--full">お問い合わせフォームはこちら</span>
+                    <span class="nav-contact-cta-text nav-contact-cta-text--full">お問い合わせフォームを開く</span>
                     <span class="nav-contact-cta-text nav-contact-cta-text--short">お問い合わせ</span>
                 </a>
                 <button type="button" class="nav-contact-sns-btn" id="nav-contact-btn" aria-label="SNSメニューを開く" aria-expanded="false" aria-controls="nav-contact-menu">
@@ -36,7 +36,11 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                 </button>
                 <div class="nav-contact-menu" id="nav-contact-menu" hidden>
-                    <p class="nav-contact-menu-title">SNSでもご連絡ください</p>
+                    <p class="nav-contact-menu-title">お問い合わせ・SNS</p>
+                    <a href="#contact-form" class="nav-contact-menu-item js-google-form-link">
+                        <span>お問い合わせフォーム</span>
+                        <small>Google フォーム（新しいタブ）</small>
+                    </a>
                     <a href="https://www.instagram.com/kojima_ruka?igsh=MXJ2bzU2Y2VnbmRpZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="nav-contact-menu-item">
                         <span>Instagram</span>
                         <small>@kojima_ruka</small>
@@ -239,50 +243,6 @@
                     </ul>
                     <a href="#works" class="bento-link bento-link--light">View All Works</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section (page 1 on PC / after hero bento on mobile) -->
-    <section id="pricing" class="section section-pricing bg-secondary">
-        <div class="container fade-in">
-            <h2 class="section-title">Pricing<span class="section-title-jp">料金表</span></h2>
-            <div class="pricing-panel">
-                <section class="price-block">
-                    <h3 class="price-block-title">基本料金</h3>
-                    <div class="price-item">
-                        <p class="price-item-name">MC・ナレーション</p>
-                        <p class="price-item-amount">1本 30,000円〜</p>
-                        <p class="price-item-note">（拘束時間により価格変動あり）</p>
-                    </div>
-                </section>
-                <section class="price-block">
-                    <h3 class="price-block-title">事前打ち合わせ<span class="price-block-sub">1時間以内</span></h3>
-                    <ul class="price-sublist">
-                        <li><span>対面</span><span class="price-item-amount">10,000円</span></li>
-                        <li><span>オンライン</span><span class="price-item-amount">5,000円</span></li>
-                    </ul>
-                </section>
-                <section class="price-block">
-                    <h3 class="price-block-title">オプション</h3>
-                    <div class="price-item">
-                        <p class="price-item-name">台本作成業務</p>
-                        <p class="price-item-desc">企業様に伝えたい内容をいただき、それをもとにこちらで作成。完成までのやりとりを全て含めて、基本料金1本20,000円前後（内容により価格変動あり）</p>
-                    </div>
-                </section>
-                <section class="price-block price-block--wide">
-                    <div class="price-item">
-                        <p class="price-item-name">モデル</p>
-                        <p class="price-item-amount">1本 20,000円〜</p>
-                        <p class="price-item-note">（拘束時間により価格変動あり）</p>
-                    </div>
-                    <div class="price-item">
-                        <p class="price-item-name">インフルエンサーPR案件</p>
-                        <p class="price-item-amount">1本 5,000円〜</p>
-                        <p class="price-item-note">（投稿内容により価格変動あり）</p>
-                    </div>
-                </section>
-                <p class="pricing-tax">金額は全て税別となります。</p>
             </div>
         </div>
     </section>
@@ -591,80 +551,27 @@
     <section id="contact" class="section">
         <div class="container fade-in">
             <h2 class="section-title text-center">Contact<span class="section-title-jp">お問い合わせ</span></h2>
-            <p class="contact-desc text-center">お仕事のご依頼・ご相談は、<strong>お問い合わせフォーム</strong>または各SNSのDMよりお気軽にご連絡ください。</p>
+            <p class="contact-desc text-center">お仕事のご依頼・ご相談は、<strong>Google フォーム</strong>または各SNSのDMよりお気軽にご連絡ください。</p>
 
             <div class="contact-layout">
                 <div class="contact-form-card" id="contact-form">
                     <div class="contact-form-head">
                         <span class="contact-form-badge">Inquiry Form</span>
                         <h3 class="contact-form-title">お問い合わせフォーム</h3>
-                        <p class="contact-form-lead">企業様・お仕事のご依頼・ご相談は、下記にご入力のうえ送信してください。</p>
+                        <p class="contact-form-lead">ボタンを押すと Google フォームが開きます。Google アカウントは不要です。</p>
                     </div>
-                    <form id="inquiry-form" class="contact-form" action="https://formsubmit.co/kojimaruka.oshigotosenyo@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="【公式サイト】お問い合わせ">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                    <input type="hidden" name="_next" value="https://ruka-kojima-mc-profile.vercel.app/#contact-thanks">
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="company">会社名・団体名</label>
-                            <input type="text" id="company" name="会社名・団体名" placeholder="株式会社〇〇（任意）">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">お名前 <span class="required">必須</span></label>
-                            <input type="text" id="name" name="お名前" required placeholder="小島 瑠夏">
-                        </div>
+                    <div class="google-form-body">
+                        <ol class="google-form-steps">
+                            <li>下のボタンをタップ</li>
+                            <li>必要事項を入力</li>
+                            <li>「送信」を押す</li>
+                        </ol>
+                        <a href="#contact-form" class="form-submit js-google-form-link">フォームを開いて送信する</a>
+                        <p class="form-note">新しいタブで開きます。送信後、確認画面が表示されます。</p>
                     </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="kana">ふりがな</label>
-                            <input type="text" id="kana" name="ふりがな" placeholder="こじま るか（任意）">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">メールアドレス <span class="required">必須</span></label>
-                            <input type="email" id="email" name="email" required placeholder="example@company.co.jp">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="tel">電話番号</label>
-                            <input type="tel" id="tel" name="電話番号" placeholder="090-0000-0000（任意）">
-                        </div>
-                        <div class="form-group">
-                            <label for="inquiry-type">お問い合わせ種別 <span class="required">必須</span></label>
-                            <select id="inquiry-type" name="お問い合わせ種別" required>
-                                <option value="" disabled selected>選択してください</option>
-                                <option value="MC・イベントのご依頼">MC・イベントのご依頼</option>
-                                <option value="ナレーション・レポーター">ナレーション・レポーター</option>
-                                <option value="モデル・広告・PR案件">モデル・広告・PR案件</option>
-                                <option value="取材・メディア関連">取材・メディア関連</option>
-                                <option value="その他">その他</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
-                        <textarea id="message" name="お問い合わせ内容" rows="6" required placeholder="ご依頼内容、日程の目安、会場・規模などをご記入ください。"></textarea>
-                    </div>
-
-                    <div class="form-group form-group--checkbox">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="個人情報の取り扱い" value="同意する" required>
-                            <span>お預かりした個人情報は、お問い合わせへの返信目的のみに使用いたします。</span>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="form-submit">送信する</button>
-                    <p class="form-note">※ 送信後、確認メールが届かない場合は Instagram DM でもご連絡いただけます。</p>
-                    </form>
                 </div>
 
-                <div class="contact-sns" id="contact-thanks">
+                <div class="contact-sns">
                     <h3 class="contact-sns-title">SNSでもお気軽に</h3>
                     <p class="contact-sns-desc">DMでのご連絡も承っております。</p>
                     <div class="social-links">
@@ -686,6 +593,7 @@
         </svg>
     </a>
 
+    <script src="js/config.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

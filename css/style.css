@@ -450,115 +450,6 @@ img { display: block; max-width: 100%; }
     display: none;
 }
 
-/* Pricing section */
-.section-pricing {
-    padding: 52px 0;
-}
-
-.section-pricing .section-title {
-    margin-bottom: 2rem;
-}
-
-.pricing-panel {
-    background: var(--bg-card);
-    border-radius: var(--radius-card);
-    padding: 1.75rem 1.5rem;
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-soft);
-}
-
-.price-block {
-    margin-bottom: 0.9rem;
-}
-
-.price-block:last-of-type {
-    margin-bottom: 0.65rem;
-}
-
-.price-block-title {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.45rem;
-    letter-spacing: 0.04em;
-}
-
-.price-block-sub {
-    display: block;
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    margin-top: 0.15rem;
-    letter-spacing: 0.02em;
-}
-
-.price-item {
-    margin-bottom: 0.55rem;
-}
-
-.price-item:last-child {
-    margin-bottom: 0;
-}
-
-.price-item-name {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.15rem;
-}
-
-.price-item-amount {
-    font-family: var(--font-en-sans);
-    font-size: 0.84rem;
-    font-weight: 600;
-    color: var(--accent-gold);
-    letter-spacing: 0.02em;
-}
-
-.price-item-note,
-.price-item-desc {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-    margin-top: 0.2rem;
-}
-
-.price-sublist {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.price-sublist li {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.75rem;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    padding: 0.35rem 0;
-    border-bottom: 1px dashed var(--border-soft);
-}
-
-.price-sublist li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.price-sublist .price-item-amount {
-    display: inline;
-    font-size: 0.84rem;
-    white-space: nowrap;
-}
-
-.pricing-tax {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    text-align: right;
-    margin-top: 0.75rem;
-    letter-spacing: 0.03em;
-}
-
 .bento-signature { margin-top: auto; }
 
 .signature-script {
@@ -980,34 +871,6 @@ img { display: block; max-width: 100%; }
 
     .bento-portrait-text {
         padding: 1.35rem 1.75rem 1.75rem;
-    }
-
-    .section-pricing {
-        padding: 32px 0 40px;
-    }
-
-    .section-pricing .section-title {
-        margin-bottom: 1.5rem;
-        font-size: 2.2rem;
-    }
-
-    .pricing-panel {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 2rem;
-        row-gap: 0.15rem;
-        padding: 1.65rem 2rem;
-        max-width: 960px;
-        margin: 0 auto;
-    }
-
-    .price-block--wide {
-        grid-column: 1 / -1;
-    }
-
-    .pricing-tax {
-        grid-column: 1 / -1;
-        margin-top: 0.35rem;
     }
 
     .bento-latest {
@@ -1436,8 +1299,29 @@ img { display: block; max-width: 100%; }
     line-height: 1.65;
 }
 
-.contact-form {
+.google-form-body {
     padding: 2rem;
+    text-align: center;
+}
+
+.google-form-steps {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.google-form-steps li {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    background: var(--bg-cream);
+    border: 1px solid var(--border-soft);
+    border-radius: 999px;
+    padding: 0.45rem 0.85rem;
+    line-height: 1.4;
 }
 
 .contact-desc strong {
@@ -1516,9 +1400,13 @@ img { display: block; max-width: 100%; }
 }
 
 .form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    margin-top: 0.5rem;
-    padding: 1rem;
+    max-width: 420px;
+    margin-top: 0.25rem;
+    padding: 1rem 1.5rem;
     background: var(--text-primary);
     color: var(--bg-card);
     border: none;
@@ -1527,6 +1415,7 @@ img { display: block; max-width: 100%; }
     font-size: 0.9rem;
     letter-spacing: 2px;
     text-transform: uppercase;
+    text-decoration: none;
     cursor: pointer;
     transition: var(--transition-smooth);
 }
@@ -1910,38 +1799,6 @@ img { display: block; max-width: 100%; }
         margin-bottom: 0;
     }
 
-    .section-pricing {
-        padding: 2rem 0 2.5rem;
-    }
-
-    .section-pricing .section-title {
-        margin-bottom: 1.25rem;
-        font-size: 1.85rem;
-    }
-
-    .pricing-panel {
-        padding: 1.2rem 1rem;
-    }
-
-    .price-block-title {
-        font-size: 0.78rem;
-    }
-
-    .price-item-name,
-    .price-sublist li {
-        font-size: 0.76rem;
-    }
-
-    .price-item-amount,
-    .price-sublist .price-item-amount {
-        font-size: 0.8rem;
-    }
-
-    .price-item-note,
-    .price-item-desc {
-        font-size: 0.68rem;
-    }
-
     .bio-lead {
         display: block;
         font-family: var(--font-jp-display);
@@ -2069,8 +1926,13 @@ img { display: block; max-width: 100%; }
         font-size: 1.35rem;
     }
 
-    .contact-form {
+    .google-form-body {
         padding: 1.25rem;
+    }
+
+    .google-form-steps {
+        flex-direction: column;
+        align-items: stretch;
     }
     .container { padding: 0 1.25rem; }
     .section-title { font-size: 2rem; }

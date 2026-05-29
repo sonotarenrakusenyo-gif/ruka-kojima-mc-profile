@@ -1,12 +1,37 @@
-■ お問い合わせフォーム
+■ お問い合わせフォーム（Google フォーム）
 
-送信先メール: kojimaruka.oshigotosenyo@gmail.com
-（index.html / js/main.js に設定済み）
+サイトのお問い合わせは Google フォームに接続しています。
+URL の設定: js/config.js の googleFormUrl
 
-【初回だけ必ず行ってください】
-1. サイトのお問い合わせフォームからテスト送信する
-2. kojimaruka.oshigotosenyo@gmail.com に FormSubmit からメールが届く
-3. メール内の「Activate Form」などのリンクをクリックして有効化する
-4. 有効化後、フォームからのお問い合わせが Gmail に届くようになります
+受信先メール: kojimaruka.oshigotosenyo@gmail.com
+（Google フォームの「回答」タブ → 通知メールを設定）
 
-※ 届かない場合は迷惑メールフォルダもご確認ください。
+【Google フォーム側の設定（初回）】
+1. https://docs.google.com/forms を開く
+2. フォームを作成（または既存フォームを編集）
+3. 右上「公開」を ON にする
+4. 「回答者へのリンクをコピー」で URL を取得
+5. js/config.js の googleFormUrl に貼り付け
+6. GitHub に push → Vercel に反映
+
+【おすすめの質問項目】
+- 会社名・団体名（任意・短文）
+- お名前（必須・短文）
+- ふりがな（任意・短文）
+- メールアドレス（必須・短文）
+- 電話番号（任意・短文）
+- お問い合わせ種別（必須・プルダウン）
+  MC・イベントのご依頼 / ナレーション・レポーター / モデル・広告・PR案件 / 取材・メディア関連 / その他
+- お問い合わせ内容（必須・段落）
+
+【回答の通知を Gmail に届ける】
+1. フォームの「回答」タブを開く
+2. ⋮（その他）→「新しい回答についてメールで通知を受け取る」を ON
+3. 通知先: kojimaruka.oshigotosenyo@gmail.com
+
+※ Google アカウントへのログインは回答者に不要です（フォーム設定で「ログインを必須にする」を OFF）。
+
+現在のフォーム URL:
+https://docs.google.com/forms/d/19xYTXAWYTiExDFfoqCBC6Ci7VbyfXuDtMYu5n_m2dyE/viewform
+
+※ 質問項目の追加・編集は Google フォームの編集画面から行えます。
