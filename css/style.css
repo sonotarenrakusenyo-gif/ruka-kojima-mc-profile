@@ -405,16 +405,20 @@ img { display: block; max-width: 100%; }
 
 .headline-line {
     display: block;
+    white-space: nowrap;
+    line-height: 1.5;
 }
 
-.headline-line--1,
-.headline-line--2 {
-    font-size: inherit;
+.headline-line--primary {
+    font-size: clamp(1.15rem, 2.2vw, 2rem);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.35rem;
 }
 
-.headline-line--3,
-.headline-line--4 {
-    margin-top: 0.12em;
+.headline-line--secondary {
+    font-size: clamp(1rem, 1.9vw, 1.65rem);
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
 }
 
 .headline-accent {
@@ -1563,36 +1567,23 @@ img { display: block; max-width: 100%; }
         margin-bottom: 0.85rem;
     }
 
-    .headline-line--1,
-    .headline-line--2 {
-        font-size: clamp(1.32rem, 5.4vw, 1.58rem);
-        line-height: 1.45;
+    .headline-line--primary {
+        font-size: clamp(0.98rem, 3.7vw, 1.2rem);
+        margin-bottom: 0.3rem;
     }
 
-    .headline-line--2 {
-        margin-bottom: 0.15rem;
+    .headline-line--secondary {
+        font-size: clamp(0.88rem, 3.2vw, 1.05rem);
+        letter-spacing: 0.04em;
+        color: var(--text-primary);
+        padding-top: 0.55rem;
+        border-top: 1px solid var(--border-soft);
     }
 
     .headline-accent {
-        font-size: 1.28em;
-        margin-right: 0.02em;
-        padding-bottom: 0.08em;
-        border-bottom: 2px solid rgba(184, 149, 106, 0.4);
-    }
-
-    .headline-line--3,
-    .headline-line--4 {
-        font-size: clamp(1.08rem, 4.2vw, 1.24rem);
-        color: var(--text-primary);
-        line-height: 1.5;
-        letter-spacing: 0.06em;
-        margin-top: 0.15rem;
-    }
-
-    .headline-line--3 {
-        margin-top: 0.65rem;
-        padding-top: 0.65rem;
-        border-top: 1px solid var(--border-soft);
+        font-size: 1.15em;
+        padding-bottom: 0.06em;
+        border-bottom: 2px solid rgba(184, 149, 106, 0.35);
     }
 
     .bento-divider {
