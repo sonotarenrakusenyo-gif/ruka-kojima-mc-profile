@@ -1659,7 +1659,7 @@ img { display: block; max-width: 100%; }
         flex-direction: column;
     }
 
-    .latest-list li:nth-child(n+9) {
+    .latest-list li:nth-child(n+14) {
         display: none;
     }
 }
